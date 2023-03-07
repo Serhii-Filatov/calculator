@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . —fix",
     "format": "npx prettier . —write",
-    "prepare": "husky install",
     "lint:html": "npx linthtml 'src/**/*.html'",
     "lint:style": "npx stylelint '**/*.css'"
   },
