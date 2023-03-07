@@ -11,6 +11,12 @@ module.exports = {
   },
   plugins: [],
   rules: {
-    'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
-  },
+    'linebreak-style': ['error', (process.platform === 'win32' ? 'windows' : 'unix')],
+    'import/prefer-default-export': 'off',
+    'import/named': 'off',
+    'class-methods-use-this': 'off',
+    'import/no-cycle': 'off',
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off'
+  }
 };
