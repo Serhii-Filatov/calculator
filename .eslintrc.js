@@ -10,9 +10,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [],
+  ignorePatterns: ['.eslintrc.js', 'commitlint.config.js'],
   rules: {
-    // 'linebreak-style': ['error', (process.platform === 'win32' ? 'windows' : 'unix')],
-    'linebreak-style': 0,
+    'linebreak-style': ['error', (process.platform === 'win32' ? 'windows' : 'unix')],
     'import/prefer-default-export': 'off',
     'import/named': 'off',
     'class-methods-use-this': 'off',
