@@ -1,15 +1,6 @@
-/* Test */
 body {
   background-color: blanchedalmond;
 }
-
-/* 
-    colors
-    bg #000
-    orange #ff9501
-    gray #a6a6a6
-    white #fdfdfd
-*/
 
 .calc {
   margin: 50px auto;
@@ -18,10 +9,8 @@ body {
   height: 500px;
   border-radius: 20px;
   box-shadow: 4px 4px 4px #4f4f4f;
-  
   color: #fff;
-  font-family: Arial;
-  
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #000;
 }
 
