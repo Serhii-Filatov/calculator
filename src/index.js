@@ -1,3 +1,7 @@
+import { runView } from './view.js';
+
+runView();
+
 let a = ''; // first number
 let b = ''; // second number
 let sign = ''; // operation
@@ -7,8 +11,10 @@ const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['-', '+', '*', '/'];
 
 // screen
+// вьюшка
 const out = document.querySelector('.calc-screen p');
 
+// Логика
 function clearAll() {
   a = '';
   b = '';
@@ -24,7 +30,9 @@ document.querySelector('.buttons').onclick = (event) => {
   //  нажата кнопка clearAll ac
   if (event.target.classList.contains('ac')) return;
 
+  // Вьюшка
   out.textContent = '';
+
   // Получаю нажатую кнопку
   const key = event.target.textContent;
   // если нажата кнопка 0-9 или .
