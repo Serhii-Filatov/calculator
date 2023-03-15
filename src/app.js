@@ -1,4 +1,4 @@
-function runView() {
+const renderApp = () => {
   const calc = document.querySelector('.calc');
 
   const calcScreen = document.createElement('div');
@@ -46,6 +46,6 @@ function runView() {
   }
 
   buttonsBlock.append(numericBtn);
-}
+};
 
-export { runView };
+export { renderApp };

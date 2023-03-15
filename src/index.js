@@ -1,6 +1,6 @@
-import { runView } from './view.js';
+import { renderApp } from './app.js';
 
-runView();
+renderApp();
 
 let a = ''; // first number
 let b = ''; // second number
