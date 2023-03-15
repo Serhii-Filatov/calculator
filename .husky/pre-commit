@@ -2,6 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run lint
-npx eslint 
-npx linthtml 'src/**/*.html'
-npx stylelint '**/*.css'
+npm run lint:html
+npm run lint:style

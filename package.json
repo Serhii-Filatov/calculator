@@ -8,7 +8,7 @@
     "lint:fix": "npx eslint . —fix",
     "format": "npx prettier . —write",
     "lint:html": "npx linthtml 'src/**/*.html'",
-    "lint:style": "npx stylelint '**/*.css'"
+    "lint:style": "npx stylelint **/*.css"
   },
   "repository": {
     "type": "git",
