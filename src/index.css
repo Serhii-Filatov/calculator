@@ -1,5 +1,12 @@
+:root {
+  --bg-main: #ffebcd;
+  --bg-btn: #333;
+  --bg-btn-grey: #a6a6a6;
+  --bg-btn-orange: #ff9501; 
+}
+
 body {
-  background-color: blanchedalmond;
+  background-color: var(--bg-main);
 }
 
 .calc {
@@ -44,7 +51,7 @@ body {
 .btn {
   width: 60px;
   height: 60px;
-  background-color: #333;
+  background-color: var(--bg-btn);
   border-radius: 50%;
   text-align: center;
   line-height: 60px;
@@ -74,9 +81,9 @@ body {
 }
 
 .btn.bg-grey {
-  background-color: #a6a6a6;
+  background-color: var(--bg-btn-grey);
 }
 
 .btn.bg-orange {
-  background-color: #ff9501;
+  background-color: var(--bg-btn-orange);
 }
