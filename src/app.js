@@ -1,17 +1,41 @@
 const renderApp = () => {
   const calc = document.querySelector('.calc');
 
-  const calcScreen = document.createElement('div');
-  calcScreen.className = 'calc-screen';
-  calc.prepend(calcScreen);
+  const createComponent = (
+    {
+      tagName,
+      className,
+      value,
+      onClick,
+      parentNode,
+    },
+  ) => {
+    if (!tagName) { throw new Error('Component should have tagName'); }
+    const node = document.createElement(tagName);
+    if (className) { node.className = className; }
+    if (value) { node.textContent = value; }
+    if (parentNode) { parentNode.append(node); }
+    if (onClick) { node.onclick = onClick; }
+    return node;
+  };
 
-  const output = document.createElement('p');
-  output.textContent = '0';
-  calcScreen.appendChild(output);
+  const calcScreen = createComponent({
+    tagName: 'div',
+    className: 'calc-screen',
+    parentNode: calc,
+  });
 
-  const buttonsBlock = document.createElement('div');
-  buttonsBlock.className = 'buttons';
-  calc.append(buttonsBlock);
+  const output = createComponent({
+    tagName: 'span',
+    value: '0',
+    parentNode: calcScreen,
+  });
+
+  const buttonsBlock = createComponent({
+    tagName: 'div',
+    className: 'buttons',
+    parentNode: calc,
+  });
 
   const buttons = [
     { name: 'ac', class: 'ac bg-grey' },
