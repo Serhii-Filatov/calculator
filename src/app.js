@@ -37,13 +37,12 @@ const renderApp = () => {
 
   const numericBtn = document.createDocumentFragment();
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const button of buttons) {
+  buttons.forEach((button) => {
     const btn = document.createElement('div');
     btn.textContent = button.name;
     btn.className = `btn  ${button.class}`;
     numericBtn.append(btn);
-  }
+  });
 
   buttonsBlock.append(numericBtn);
 };
