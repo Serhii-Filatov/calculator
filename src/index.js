@@ -12,7 +12,7 @@ const action = ['-', '+', '*', '/'];
 
 // screen
 // вьюшка
-const out = document.querySelector('.calc-screen p');
+const out = document.querySelector('.calc-screen span');
 
 // Логика
 function clearAll() {

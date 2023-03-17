@@ -25,6 +25,7 @@ const renderApp = () => {
     parentNode: calc,
   });
 
+  // eslint-disable-next-line no-unused-vars
   const output = createComponent({
     tagName: 'span',
     value: '0',
@@ -62,10 +63,12 @@ const renderApp = () => {
   const numericBtn = document.createDocumentFragment();
 
   buttons.forEach((button) => {
-    const btn = document.createElement('div');
-    btn.textContent = button.name;
-    btn.className = `btn  ${button.class}`;
-    numericBtn.append(btn);
+    createComponent({
+      tagName: 'div',
+      value: button.name,
+      className: `btn  ${button.class}`,
+      parentNode: numericBtn,
+    });
   });
 
   buttonsBlock.append(numericBtn);
