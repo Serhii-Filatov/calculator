@@ -1,7 +1,9 @@
+import { setOutput } from '../store/calculatorStore.js';
+
 let a = ''; // first number
 let b = ''; // second number
 let sign = ''; // operation
-let finish = false; // flag
+let finish = false; // isFinished
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['-', '+', '*', '/'];
@@ -10,12 +12,12 @@ const action = ['-', '+', '*', '/'];
 
 // Логика
 const clearAll = () => {
-  const out = document.querySelector('.calc-screen span');
+  // const out = document.querySelector('.calc-screen span');
   a = '';
   b = '';
   sign = '';
   finish = false;
-  out.textContent = 0;
+  setOutput(0);
 };
 
 const calculate = (event) => {

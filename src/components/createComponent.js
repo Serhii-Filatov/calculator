@@ -1,4 +1,4 @@
-const createComponent = ({
+export const createComponent = ({
   tagName, className, value, onClick, parentNode,
 }) => {
   if (!tagName) {
@@ -19,5 +19,3 @@ const createComponent = ({
   }
   return node;
 };
-
-export { createComponent };
