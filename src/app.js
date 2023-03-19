@@ -1,4 +1,5 @@
 import { createComponent } from './components/createComponent.js';
+import { calculate, clearAll } from './services/calculatorService.js';
 
 const renderApp = () => {
   const calc = document.querySelector('.calc');
@@ -19,6 +20,7 @@ const renderApp = () => {
     tagName: 'div',
     className: 'buttons',
     parentNode: calc,
+    onClick: calculate,
   });
 
   const buttons = [
@@ -51,6 +53,7 @@ const renderApp = () => {
       value: button.name,
       className: `btn  ${button.class}`,
       parentNode: numericBtn,
+      ...(button.name === 'ac' ? { onClick: clearAll } : {}),
     });
   });
 
