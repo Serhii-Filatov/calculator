@@ -1,12 +1,6 @@
-const createComponent = (
-  {
-    tagName,
-    className,
-    value,
-    onClick,
-    parentNode,
-  },
-) => {
+const createComponent = ({
+  tagName, className, value, onClick, parentNode,
+}) => {
   if (!tagName) {
     throw new Error('Component should have tagName');
   }

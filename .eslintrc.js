@@ -3,13 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: ['airbnb'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [],
+  plugins: ['prettier', 'import'],
   ignorePatterns: ['.eslintrc.js', 'commitlint.config.js'],
   rules: {
     'linebreak-style': ['error', (process.platform === 'win32' ? 'windows' : 'unix')],
