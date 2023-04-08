@@ -6,7 +6,7 @@ let operation = '';
 let isFinished = false;
 
 const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', '*', '/'];
+const actions = ['-', '+', '*', '/', '+/-', '%'];
 
 // screen
 
@@ -47,7 +47,7 @@ const calculate = (event) => {
   }
 
   // если нажата кнопка + - / *
-  if (action.includes(key)) {
+  if (actions.includes(key)) {
     operation = key;
     setOutput(operation);
   }
@@ -74,6 +74,9 @@ const calculate = (event) => {
           return;
         }
         firstNumber /= secondNumber;
+        break;
+      case '+/-':
+        firstNumber -= (firstNumber * 2);
         break;
       case '%':
         firstNumber /= 100;
