@@ -1,7 +1,8 @@
 import { state, setOutput, setState } from '../store/calculatorStore.js';
-import { isEmpty, isZero, convert } from '../utils/helpers.js';
+import { isEmpty, isZero, isEqualOperation } from '../utils/helpers.js';
 
 const PERCENT = 0.01;
+const REVERS = 2;
 const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const actions = ['-', '+', '*', '/', '+/-', '%'];
 const clearArg = {
@@ -27,14 +28,13 @@ export const calculate = (event) => {
   // если нажата кнопка 0-9 или .
   if (digits.includes(key)) {
     if (isEmpty(state.secondNumber) && isEmpty(state.operation)) {
-      state.firstNumber += key;
+      setState({ firstNumber: state.firstNumber + key });
       setOutput(state.firstNumber);
     } else if (!isEmpty(state.firstNumber) && !isEmpty(state.secondNumber) && state.isFinished) {
-      setState({ secondNumber: key });
-      setState({ isFinished: false });
+      setState({ secondNumber: key, isFinished: false });
       setOutput(state.secondNumber);
     } else {
-      state.secondNumber += key;
+      setState({ secondNumber: state.secondNumber + key });
       setOutput(state.secondNumber);
     }
     return;
@@ -47,8 +47,10 @@ export const calculate = (event) => {
   }
 
   // нажато =
-  if (key === '=') {
-    if (isEmpty(state.secondNumber)) state.secondNumber = state.firstNumber;
+  if (isEqualOperation(key)) {
+    if (isEmpty(state.secondNumber)) {
+      state.secondNumber = state.firstNumber;
+    }
     switch (state.operation) {
       case '+':
         state.firstNumber = +state.firstNumber + +state.secondNumber;
@@ -68,7 +70,7 @@ export const calculate = (event) => {
         state.firstNumber /= state.secondNumber;
         break;
       case '+/-':
-        state.firstNumber -= convert(state.firstNumber);
+        state.firstNumber -= (state.firstNumber * REVERS);
         break;
       case '%':
         state.firstNumber *= PERCENT;
