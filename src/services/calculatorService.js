@@ -53,13 +53,13 @@ export const calculate = (event) => {
     }
     switch (state.operation) {
       case '+':
-        state.firstNumber = +state.firstNumber + +state.secondNumber;
+        setState({ firstNumber: (Number(state.firstNumber) + Number(state.secondNumber)) });
         break;
       case '-':
-        state.firstNumber -= state.secondNumber;
+        setState({ firstNumber: (state.firstNumber - state.secondNumber) });
         break;
       case '*':
-        state.firstNumber *= state.secondNumber;
+        setState({ firstNumber: (state.firstNumber * state.secondNumber) });
         break;
       case '/':
         if (isZero(state.secondNumber)) {
@@ -67,7 +67,7 @@ export const calculate = (event) => {
           setState(clearArg);
           return;
         }
-        state.firstNumber /= state.secondNumber;
+        setState({ firstNumber: (state.firstNumber / state.secondNumber) });
         break;
       case '+/-':
         state.firstNumber -= (state.firstNumber * REVERS);
