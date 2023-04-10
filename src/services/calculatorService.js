@@ -49,7 +49,7 @@ export const calculate = (event) => {
   // нажато =
   if (isEqualOperation(key)) {
     if (isEmpty(state.secondNumber)) {
-      state.secondNumber = state.firstNumber;
+      setState({ secondNumber: state.firstNumber });
     }
     switch (state.operation) {
       case '+':
