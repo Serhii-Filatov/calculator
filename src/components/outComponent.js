@@ -1,4 +1,4 @@
-import { state, subcribe } from '../store/calculatorStore.js';
+import { state, subscribe } from '../store/calculatorStore.js';
 import { createComponent } from './createComponent.js';
 
 export const outComponent = (parentNode) => {
@@ -18,5 +18,5 @@ export const outComponent = (parentNode) => {
     out.textContent = state.out;
   };
 
-  subcribe(out);
+  subscribe(out);
 };
