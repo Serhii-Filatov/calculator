@@ -1,19 +1,22 @@
-import { state, setOutput, setState } from '../store/calculatorStore.js';
+import {
+  state, defaultState, setOutput, setState,
+} from '../store/calculatorStore.js';
 import { isEmpty, isZero, isEqualOperation } from '../utils/helpers.js';
 
-const PERCENT = 0.01;
+const PERCENTAGE = 0.01;
 const REVERS = 2;
 const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const actions = ['-', '+', '*', '/', '+/-', '%'];
-const clearArg = {
-  firstNumber: '',
-  secondNumber: '',
-  operation: '',
-  isFinished: false,
+const actions = {
+  MINUS: '-',
+  PLUS: '+',
+  MULTIPLE: '*',
+  DIVIDE: '/',
+  PLUS_MINUS: '+/-',
+  PERCENT: '%',
 };
 
 export const clearAll = () => {
-  setState(clearArg);
+  setState(defaultState);
   setOutput('0');
 };
 
@@ -41,7 +44,7 @@ export const calculate = (event) => {
   }
 
   // если нажата кнопка + - / *
-  if (actions.includes(key)) {
+  if (Object.values(actions).includes(key)) {
     setState({ operation: key });
     setOutput(state.operation);
   }
@@ -52,28 +55,28 @@ export const calculate = (event) => {
       setState({ secondNumber: state.firstNumber });
     }
     switch (state.operation) {
-      case '+':
+      case actions.PLUS:
         setState({ firstNumber: (Number(state.firstNumber) + Number(state.secondNumber)) });
         break;
-      case '-':
+      case actions.MINUS:
         setState({ firstNumber: (state.firstNumber - state.secondNumber) });
         break;
-      case '*':
+      case actions.MULTIPLE:
         setState({ firstNumber: (state.firstNumber * state.secondNumber) });
         break;
-      case '/':
+      case actions.DIVIDE:
         if (isZero(state.secondNumber)) {
           setOutput('Ошибка!');
-          setState(clearArg);
+          setState(defaultState);
           return;
         }
         setState({ firstNumber: (state.firstNumber / state.secondNumber) });
         break;
-      case '+/-':
-        state.firstNumber -= (state.firstNumber * REVERS);
+      case actions.PLUS_MINUS:
+        setState({ firstNumber: state.firstNumber - (state.firstNumber * REVERS) });
         break;
-      case '%':
-        state.firstNumber *= PERCENT;
+      case actions.PERCENT:
+        setState({ firstNumber: state.firstNumber * PERCENTAGE });
         break;
       default:
         break;

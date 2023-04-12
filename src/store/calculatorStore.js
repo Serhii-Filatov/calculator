@@ -1,12 +1,13 @@
 const observers = [];
-
-export const state = {
+export const defaultState = {
   out: '0',
   firstNumber: '',
   secondNumber: '',
   operation: '',
   isFinished: false,
 };
+
+export const state = defaultState;
 
 export const setState = ({
   firstNumber,
