@@ -7,7 +7,7 @@ export const defaultState = {
   isFinished: false,
 };
 
-export const state = defaultState;
+export const state = { ...defaultState };
 
 export const setState = ({
   firstNumber,
