@@ -1,23 +1,14 @@
 import {
+  ERROR_TEXT, PERCENTAGE, REVERS, digits, actions,
+} from '../utils/constants.js';
+import {
   state, defaultState, setOutput, setState,
 } from '../store/calculatorStore.js';
 import { isEmpty, isZero, isEqualOperation } from '../utils/helpers.js';
 
-const PERCENTAGE = 0.01;
-const REVERS = 2;
-const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const actions = {
-  MINUS: '-',
-  PLUS: '+',
-  MULTIPLE: '*',
-  DIVIDE: '/',
-  PLUS_MINUS: '+/-',
-  PERCENT: '%',
-};
-
 export const clearAll = () => {
   setState(defaultState);
-  setOutput('0');
+  setOutput(defaultState.out);
 };
 
 export const calculate = (event) => {
@@ -66,7 +57,7 @@ export const calculate = (event) => {
         break;
       case actions.DIVIDE:
         if (isZero(state.secondNumber)) {
-          setOutput('Ошибка!');
+          setOutput(ERROR_TEXT);
           setState(defaultState);
           return;
         }
